@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../assets/img/favicon.ico">
+    <title>To Do Lists | Log In</title>
+  </head>
+  <body>
+    <main>
+        <div class="form__container">
+            <form id="login__form" class="form__content" method="POST">
+
+                <div class="form__heading"><h2>Log In</h2></div>
+                
+                <input id="email" class="input"
+                    type="email" name="email" 
+                    minlength="5" maxlength="49" required placeholder="Enter your e-mail" />
+
+                <input id="password" class="input"
+                    type="password" name="password" minlength="8" 
+                    maxlength="20" required placeholder="Enter your password">    
+
+                <div id="checkbox-block" class="form__checkbox"><label>
+                    <input class="hidden-checkbox" type="checkbox" id="hidden-checkbox">
+                    <span class="visible-checkbox"></span>
+                    <p class="checkbox-text">Show Password</p>
+                </label></div>
+
+                <p class='error__message' id='error__message'></p>
+
+                <input class="form-btn"
+                    type="submit" name="button" value="Log In">
+
+                <p class="form-text">If you don't have an account yet, you can <a href="register.html">Sign Up</a></p>
+            </form>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+  </body>
+
+  <script src="../js/register.js"></script>
+</html>

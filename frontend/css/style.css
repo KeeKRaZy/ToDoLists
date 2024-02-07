@@ -1,0 +1,476 @@
+@import "normalize.css";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: rgb(47, 47, 47);
+  font-size: 2rem;
+}
+
+header {
+  background-color: rgb(55, 55, 55);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  width: 100vw;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+}
+
+.nav {
+  width: 80vw;
+  list-style: none;
+  font-size: 3.6rem;
+}
+.nav-item {
+  text-align: right;
+}
+.nav-link {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: rgb(200, 200, 200);
+}
+
+.container {
+  margin: auto 2.5vw;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: flex-start;
+}
+
+.cream {
+  background-color: rgb(250, 240, 230);
+}
+
+.note {
+  min-height: 20px;
+  width: 30rem;
+  padding-bottom: 1.3rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 13rem 1.2rem;
+  position: relative;
+}
+.note .note__header {
+  width: 26.4rem;
+  margin: 0 1.8rem;
+  padding-top: 1.8rem;
+  position: relative;
+}
+.note .note__header .note__heading {
+  word-wrap: break-word;
+  max-width: 20rem;
+  font-size: 2.4rem;
+  display: inline-block;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.note .note__header .note__heading:focus, .note .note__header .note__heading:hover {
+  border-color: transparent;
+  color: rgb(73, 73, 73);
+}
+.note .note__header .note__heading:focus {
+  outline: 0px solid transparent;
+}
+.note .note__header .menu-btn {
+  position: absolute;
+  top: 1.8rem;
+  right: 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.note .note__header .menu-btn:hover {
+  transform: rotate(180deg);
+}
+.note .note__task {
+  border-radius: 0.7rem;
+  word-wrap: break-word;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 0.7rem;
+  padding: 0.8rem 1.4rem;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.note .note__task:hover, .note .note__task:focus {
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.6);
+}
+.note .note__task:focus {
+  color: rgb(73, 73, 73);
+}
+.note .note__task:first-of-type {
+  margin-top: 1.5rem;
+}
+.note .note__task .task__text {
+  outline: 0px solid transparent;
+  min-height: 2.3rem;
+}
+.note .note__task .task__cover {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.note .note__task .change__task-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  background-color: rgb(246, 246, 246);
+  border-radius: 50%;
+  padding: 0.7rem;
+  transition: 0.3s;
+  display: none;
+}
+.note .note__task:hover .change__task-btn {
+  display: unset;
+}
+.note .add__task-btn {
+  color: rgb(45, 45, 45);
+  display: block;
+  margin: auto;
+  margin-top: 1.3rem;
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 0.5rem 7.9rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0);
+}
+.note .add__task-btn:hover {
+  box-shadow: 0 0 5px 0 rgb(0, 0, 0);
+}
+.note .note__menu {
+  position: absolute;
+  z-index: 3;
+  left: 24rem;
+  top: 5rem;
+  min-width: 24rem;
+  border: 1px solid #A6A6A6;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  border-radius: 1rem;
+  color: rgb(48, 48, 48);
+  font-size: 1.8rem;
+}
+.note .note__menu .menu__heading {
+  text-align: center;
+  font-size: 2rem;
+}
+.note .note__menu .menu__close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 100;
+}
+.note .note__menu .list-section {
+  list-style: none;
+  margin-top: 2rem;
+  border-top: 1px solid rgb(156, 156, 156);
+}
+.note .note__menu .list-section:first-of-type {
+  margin-top: 2.5rem;
+  border-top: 0px solid rgb(156, 156, 156);
+}
+.note .note__menu .list-section .list__action {
+  margin-top: 1.5rem;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.note .note__menu .list-section .list__action:first-of-type {
+  margin-top: 2rem;
+}
+.note .note__menu .list-section .list__action:last-of-type {
+  margin-bottom: 1.5rem;
+}
+.note .note__menu .list-section .list__action:hover {
+  color: black;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.add__note {
+  width: 30rem;
+  margin: 13rem 1.2rem;
+  padding: 2rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: rgb(69, 69, 69);
+  color: rgb(216, 216, 216);
+  flex-shrink: 0;
+  margin-right: 2.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.add__note:hover {
+  background-color: rgba(69, 69, 69, 0.4);
+  color: rgba(255, 255, 255, 0.6);
+}
+.add__note .add__note__text {
+  text-align: center;
+}
+.add__note .add__note__text span {
+  font-size: 2.3rem;
+  margin-right: 0.6rem;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup .popup-background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 11;
+}
+.popup .popup-container {
+  display: flex;
+  width: 45vw;
+  min-height: 60vh;
+  max-height: 75vh;
+  padding: 3vh 1vw 3vh 3vw;
+  background-color: rgb(55, 55, 55);
+  border-radius: 1.5rem;
+  color: white;
+  z-index: 12;
+}
+.popup .popup-content {
+  flex: 7.5;
+  padding-right: 1.5vw;
+  overflow-y: scroll;
+}
+.popup .popup-content::-webkit-scrollbar {
+  width: 1px;
+}
+.popup .popup-content::-webkit-scrollbar-track {
+  background: rgb(150, 150, 150);
+}
+.popup .popup-content::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+}
+.popup .popup-content .content-heading {
+  outline: 0px solid transparent;
+  word-wrap: break-word;
+}
+.popup .popup-content .content-text {
+  outline: 0px solid transparent;
+  word-wrap: break-word;
+}
+.popup .popup-menu {
+  flex: 2.5;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5vw;
+  padding-left: 1vw;
+  margin-top: 4vh;
+}
+.popup .popup-menu .list-section {
+  list-style: none;
+  margin-top: 0.7rem;
+  border-top: 1px solid rgb(170, 170, 170);
+}
+.popup .popup-menu .list-section:first-of-type {
+  margin-top: 2.5rem;
+  border-top: 0px solid rgb(170, 170, 170);
+}
+.popup .popup-menu .list-section .list__action {
+  margin-top: 1.5rem;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.popup .popup-menu .list-section .list__action:first-of-type {
+  margin-top: 2rem;
+}
+.popup .popup-menu .list-section .list__action:last-of-type {
+  margin-bottom: 1.5rem;
+}
+.popup .popup-menu .list-section .list__action:hover {
+  color: rgb(141, 141, 141);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form__content {
+  background-color: rgb(55, 55, 55);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  height: 37.3rem;
+  width: 50rem;
+  padding: 2vw 3vw;
+  border-radius: 1.5rem;
+  color: white;
+}
+.form__content .form__heading {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.form__content .input {
+  margin: auto;
+  border-color: white;
+  border-radius: 0.3rem;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  width: 47rem;
+  color: black;
+  margin-top: 2rem;
+}
+.form__content .input:focus {
+  outline: 0px solid transparent;
+}
+.form__content .form__checkbox {
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+}
+.form__content .hidden-checkbox {
+  display: none;
+}
+.form__content .visible-checkbox {
+  display: inline-block;
+  min-width: 0.5rem;
+  min-height: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+  background-color: white;
+  border: 1px solid rgb(227, 227, 228);
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.form__content .checkbox-text {
+  display: inline-block;
+  cursor: pointer;
+}
+.form__content .visible-checkbox::before {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: url(../assets/img/checkMark.svg);
+  opacity: 0;
+}
+.form__content .hidden-checkbox:checked + .visible-checkbox::before {
+  opacity: 1;
+  transition: 0.2s;
+}
+.form__content .hidden-checkbox:checked + .visible-checkbox {
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: rgb(55, 55, 55);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.form__content .error__message {
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.8rem;
+  position: absolute;
+}
+.form__content .form-btn {
+  margin-top: 4.5rem;
+  border-radius: 0.3rem;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  width: 200px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid transparent;
+  transition: 0.3s;
+  color: grey;
+}
+.form__content .form-btn:hover {
+  color: black;
+  border: 1px solid black;
+}
+.form__content .input {
+  margin: auto;
+  border-color: white;
+  border-radius: 0.3rem;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  width: 25vw;
+  color: black;
+  margin-top: 2rem;
+}
+.form__content .input:focus {
+  outline: 0px solid transparent;
+}
+.form__content .password-block {
+  display: flex;
+  justify-content: start;
+}
+.form__content .password-block .input {
+  margin: 0;
+  margin-top: 2rem;
+  width: 10.7vw;
+}
+.form__content .password-block .input + .input {
+  margin-left: 1vw;
+}
+.form__content .form-text {
+  margin-top: 3rem;
+  font-size: 1.6rem;
+}
+.form__content .form-text a {
+  color: #00ffff;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.3rem;
+}
+.form__content .form-text a:hover {
+  border-bottom: 1px solid #00ffff;
+}
+
+.loading__status {
+  font-size: 6rem;
+  color: white;
+  display: block;
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.grey {
+  color: rgb(196, 196, 196);
+}/*# sourceMappingURL=style.css.map */
